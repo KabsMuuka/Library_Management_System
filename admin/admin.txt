@@ -1,0 +1,1 @@
+Admin will be able to upload,delete, and edit a book to the site.
