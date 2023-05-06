@@ -1,0 +1,41 @@
+.profile {
+    display: block;
+    text-align: end;
+}
+
+.container{
+  padding-left: 50px;
+  padding-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  vertical-align: top;
+  column-gap: 20px;
+  row-gap: 30px;
+}
+.delete_button{
+    margin-top: 20px;
+    background-color: rgb(255, 8, 8);
+    color: rgb(255, 255, 255);
+    font-weight: 900;
+    font-size: large;
+    border-radius: 7px;
+
+}
+.uploaded_files {
+  width: 100%;
+}
+
+.img{
+    width: 30px;
+}
+.kabs{
+    width: 100%;
+}
+.header{
+    text-align: start;
+}
+
+.footer{
+    text-align: center;
+}
+
