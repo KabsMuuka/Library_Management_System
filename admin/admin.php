@@ -1,29 +1,30 @@
 <?php
-session_start();
-include_once 'uploads.php';
+// session_start();
+// include_once 'uploads.php';
 
-// Check if a delete request has been made
-if (isset($_POST['delete'])) {
-    $file_to_delete = $_POST['file_to_delete'];
-    if (file_exists($file_to_delete)) {
-        unlink($file_to_delete);
-        header('Location: admin.php');
-        exit;
-    }
-}
-// Get a list of uploaded files
-$uploaded_files = glob('uploads/*.{jpg,png,gif,pdf}', GLOB_BRACE);
-?>
+// // Check if a delete request has been made
+// if (isset($_POST['delete'])) {
+//     $file_to_delete = $_POST['file_to_delete'];
+//     if (file_exists($file_to_delete)) {
+//         unlink($file_to_delete);
+//         header('Location: admin.php');
+//         exit;
+//     }
+// }
+// // Get a list of uploaded files
+// $uploaded_files = glob('uploads/*.{jpg,png,gif,pdf}', GLOB_BRACE);
+// ?>
 <!DOCTYPE html>
 <html> 
     <head>
          <link rel="stylesheet" href="css.css">
+         <script src="./app.js" defer></script>
     </head>
     <body>
-    <a class="profile" href="profile.php" > <img class="img" src="imgs/0.webp" alt=""> </a>
-    <hr>
+    <!-- <a class="profile" href="profile.php" > <img class="img" src="imgs/0.webp" alt=""> </a> -->
+    <!-- <hr> -->
     <div> 
-        <h1 class="header"> Admin panel  </h1>
+        <!-- <h1 class="header"> Admin panel  </h1>
 
         <p style="text-align: center;">A list of Uploaded files</p>
 
@@ -46,9 +47,109 @@ $uploaded_files = glob('uploads/*.{jpg,png,gif,pdf}', GLOB_BRACE);
         <form action="uploads.php" method="POST" enctype="multipart/form-data">
             <input type="file" name="file" id="file">
             <input type="submit" value="Upload" name="upload">
-        </form>
+        </form> -->
         </div>
     </div>
+
+
+    <header>
+            <div class="menu">
+                <div class="nav">
+                    <h1 class="nav-title">Library Management System</h1>
+                    <button class="btn-profile">
+                        <div class="profile-img">
+                            <img class=''src="imgs/0.webp" alt="profile">
+                        </div>
+                    </button>
+                </div>
+            </div>
+    </header>    
+    <main>
+        <div class="addBookCard">
+            <div class="addBook">
+                <div class="card-top">
+                    <h3 class="title">Add New Book</h3>
+                    <button class="btn-cancel"><h3 class="minimise">X</h3></button>
+                </div>
+                <form action="uploads.php" class="form" method="POST" enctype="multipart/form-data" >
+                    <input class="bookName" name="book_name" type="text"  placeholder="Book Name">
+                    <input class="author" name="author" type="text"  placeholder="Author">
+                    <input class="year" name="year_published"  type="date">
+                    <textarea class="description"  placeholder="Description"></textarea>
+                    <label for="image-file">Cover Image</label>
+                    <input type="file"  name="image-file" id="file">
+                    <label for="book-file">Book</label>
+                    <input type="file"  name="book-file" id="file">
+                    <button class="add"type="submit" name="add">Add</button>
+                </form>
+            </div>
+        </div>
+        
+        <button id="book-btn" class="book-btn">Add Book</button>
+        <div class="views">
+                    <div class="books">
+                        <table>
+                            <tr class="theader">
+                                <th>ID</th>
+                                <th>Book Name</th>
+                                <th>Author</th>
+                                <th>Year Published</th>
+                                <th>Downloads</th>
+                                <th>Description</th>
+                                <th>Action</th>
+                                <th>Action</th>
+                            </tr>
+                            
+                            <tr class="tbody" style="text-align: left;">
+                                <?php
+                                    $url='http://localhost/php_projects/Library_Management_System/api/user/readBooks.php';
+                                    
+                                    $json = json_decode(file_get_contents($url));
+                                    $user_data = $json->data;
+                                    
+                                    foreach($user_data as $user){
+                                        echo 
+                                        '<td>'.$user->id.'</td>
+                                        <td>'.$user->book_name.'</td>
+                                        <td>'.$user->author.'</td>
+                                        <td>'.$user->year_published.'</td>
+                                        <td>'.$user->dCount.'</td>
+                                        <td>'.$user->description.'</td>
+                                        <td><button class="edit">Edit</button></td>
+                                        <td><button class="delete">Delete</button></td>
+                                        ';
+                                    }
+                                ?>
+                                
+                            </tr>
+                        </table>                        
+                    </div>  
+
+                <div class="users">
+                        <table>
+                            <tr class="user-theader">
+                                <th>ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                            </tr>
+                            <tr class="user-tbody">
+                                <td>1</td>
+                                <td>Blessing</td>
+                                <td>Mwandira</td>
+                                <td>chile02@gmail.com</td>
+                            </tr>
+                        </table>
+                </div>
+
+
+        </div>
+
+    </main>
+    <footer>
+            <p>made with &#10084;&#65039; by Group 7</p>
+            <p>&copy; All rights Reserved</p>
+    </footer>
     
     </body>
 </html>

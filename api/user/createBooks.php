@@ -19,7 +19,8 @@
     $user->book_name=$data->book_name; 
     $user->author=$data->author; 
     $user->year_published=$data->year_published; 
-    $user->description=$data->description; 
+    $user->description=$data->description;
+    $user->img_url=$data->img_url; 
 
     if($user->createBook()){
         echo json_encode(

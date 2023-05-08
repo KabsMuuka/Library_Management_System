@@ -10,6 +10,7 @@
         public $img_url;
         public $book_name;
         public $book_id;
+        public $book_url;
         public $author;
         public $year_published;
         public $date_created;
@@ -43,7 +44,8 @@
                 year_published,
                 description,
                 dCount,
-                img_url
+                img_url,
+                url
                 FROM
                 books
                 INNER JOIN
@@ -54,6 +56,10 @@
                 downloads
                 ON
                 downloads.book_id=books.id
+                INNER JOIN
+                books_url
+                ON
+                books_url.book_id=books.id
                 ORDER BY 
                 books.id
                 DESC
@@ -75,6 +81,15 @@
                     :description
                 )
             ';
+            
+            $querry2 = '
+                    INSERT INTO images
+                    (image_url, book_id)
+                    VALUES(
+                        :image_url,
+                        :book_id
+                    )
+            ';
 
             $stmt = $this->db->prepare($querry);
 
@@ -87,9 +102,19 @@
             $stmt->bindParam(':author', $this->author);
             $stmt->bindParam(':year_published', $this->year_published);
             $stmt->bindParam(':description', $this->description);
-
+            
+            //insert book_url 
+            $lastid=$this->db->lastInsertId();
+            $stmt1 = $this->db->prepare($querry2);
+            
+            $this->book_url=htmlspecialchars(strip_tags($this->book_url));
+            
+            $stmt1->bindParam(':book_url',$this->img_url);
+            $stmt1->bindParam(':book_id',$lastid);
             if($stmt->execute()){
-                return true;
+                if($stmt1->execute()){
+                    return true;
+                } 
             }
 
             return false;

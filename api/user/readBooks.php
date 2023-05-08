@@ -29,7 +29,8 @@ include_once('./../models/All.php');
                 'year_published'=>$year_published,
                 'description'=>$description,
                 'dCount'=>$dCount,
-                'img_url'=>$img_url
+                'img_url'=>$img_url,
+                // 'url'=>$book_url
             );
 
             array_push($arrayItems['data'], $userItems);
