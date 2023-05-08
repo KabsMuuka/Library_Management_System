@@ -5,9 +5,8 @@
 </html>
 <?php
     //Displays errors
-    // ini_set('display_errors', 1);
-    // error_reporting(E_ALL);
-    // include_once('../admin/uploads');
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
     if(isset($_POST['add'])){
         $allowed_book_ext=array('pdf','pub','doc','ppt','docx','pptx');
         $allowed_image_ext=array('png','jpg','jpeg','tiff','webp');
@@ -43,14 +42,48 @@
             }
             $book_name = $_POST['book_name'];
             $author=$_POST['author'];
-            $year_published = $_POST['year_published'];
+            $year_published = date('Y-m-d', strtotime($_POST['year_published']));
             $description = $_POST['description'];
-            $data=array(
-                "book_name"=>$book_name,
-                'author'=>$author,
-                "year_published"=>$year_published,
-                "description"=>$description
-            );
+
+            //data to send to an api
+            
+
+            try{
+                    // API endpoint URL
+                    $url = 'http://localhost/php_projects/Library_Management_System/api/user/createBooks.php';
+
+                    // Initialize curl
+                    $ch = curl_init();
+
+                    $data=array(
+                        "book_name"=>$book_name,
+                        'author'=>$author,
+                        "year_published"=>$year_published,
+                        "description"=>$description,
+                        "img_url"=>$image_target_dir,
+                        "url"=>$book_target_dir
+                    );
+
+                    // Set curl options
+                    curl_setopt($ch, CURLOPT_URL, $url);
+                    curl_setopt($ch, CURLOPT_POST, true);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+                    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+                    // Execute curl and get response
+                    $response = curl_exec($ch);
+
+                    // Close curl
+                    curl_close($ch);
+
+                    // Do something with the response
+                    echo $response;
+                    echo "Book added!";
+
+            }catch(PDOException $e){
+                echo $e->getMessage();
+            }
 
         }else{
             echo "<p style=color:red;>Add file</p>";

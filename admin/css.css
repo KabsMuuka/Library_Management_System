@@ -159,6 +159,13 @@ table, td, th {
     text-align: left;
   }
 
+.tbody{
+    color: #008000;
+}
+.bk_body{
+    background-color: #000;
+}
+
 .books td, tr{
     padding-left: .3em;
 }

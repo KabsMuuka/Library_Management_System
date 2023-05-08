@@ -75,7 +75,7 @@
                     <input class="bookName" name="book_name" type="text"  placeholder="Book Name">
                     <input class="author" name="author" type="text"  placeholder="Author">
                     <input class="year" name="year_published"  type="date">
-                    <textarea class="description"  placeholder="Description"></textarea>
+                    <textarea class="description" name="description"  placeholder="Description"></textarea>
                     <label for="image-file">Cover Image</label>
                     <input type="file"  name="image-file" id="file">
                     <label for="book-file">Book</label>
@@ -89,39 +89,41 @@
         <div class="views">
                     <div class="books">
                         <table>
-                            <tr class="theader">
-                                <th>ID</th>
-                                <th>Book Name</th>
-                                <th>Author</th>
-                                <th>Year Published</th>
-                                <th>Downloads</th>
-                                <th>Description</th>
-                                <th>Action</th>
-                                <th>Action</th>
-                            </tr>
+                            <thead>
+                                    <tr class="theader">
+                                        <th>ID</th>
+                                        <th>Book Name</th>
+                                        <th>Author</th>
+                                        <th>Year Published</th>
+                                        <th>Downloads</th>
+                                        <th>Description</th>
+                                        <th>Action</th>
+                                        <th>Action</th>
+                                    </tr>
+                            </thead>
+                           
+                            <tbody>
+                                        
+                                        <?php 
+                                            $url='http://localhost/php_projects/Library_Management_System/api/user/readBooks.php';
+                                            
+                                            $json = json_decode(file_get_contents($url));
+                                            $user_data = $json->data;
+                                        foreach ($user_data as $user): ?>
+                                            <tr class="tbody">
+                                                <td class="bk_data"><?php echo $user->id?></td>
+                                                <td><?php echo $user->book_name?></td>
+                                                <td><?php echo $user->author?></td>
+                                                <td><?php echo $user->year_published?></td>
+                                                <td><?php echo $user->dCount?></td>
+                                                <td><?php echo $user->description?></td>
+                                                <td><button class="edit">Edit</button></td>
+                                                <td><button class="delete">Delete</button></td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                   
+                            </tbody>
                             
-                            <tr class="tbody" style="text-align: left;">
-                                <?php
-                                    $url='http://localhost/php_projects/Library_Management_System/api/user/readBooks.php';
-                                    
-                                    $json = json_decode(file_get_contents($url));
-                                    $user_data = $json->data;
-                                    
-                                    foreach($user_data as $user){
-                                        echo 
-                                        '<td>'.$user->id.'</td>
-                                        <td>'.$user->book_name.'</td>
-                                        <td>'.$user->author.'</td>
-                                        <td>'.$user->year_published.'</td>
-                                        <td>'.$user->dCount.'</td>
-                                        <td>'.$user->description.'</td>
-                                        <td><button class="edit">Edit</button></td>
-                                        <td><button class="delete">Delete</button></td>
-                                        ';
-                                    }
-                                ?>
-                                
-                            </tr>
                         </table>                        
                     </div>  
 
