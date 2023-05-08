@@ -21,16 +21,15 @@ include_once('./../models/All.php');
 
         while($row=$result->fetch(PDO::FETCH_ASSOC)){
             extract($row);
-            
             $userItems=array(
                 'id'=>$id,
                 'book_name'=>$book_name,
                 'author'=>$author,
                 'year_published'=>$year_published,
                 'description'=>$description,
-                'dCount'=>$dCount,
                 'img_url'=>$img_url,
-                // 'url'=>$book_url
+                'url'=>$url,
+                'dCount'=>$dCount
             );
 
             array_push($arrayItems['data'], $userItems);

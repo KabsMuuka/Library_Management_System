@@ -21,6 +21,7 @@
     $user->year_published=$data->year_published; 
     $user->description=$data->description;
     $user->img_url=$data->img_url; 
+    $user->book_url=$data->book_url;
 
     if($user->createBook()){
         echo json_encode(

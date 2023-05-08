@@ -37,33 +37,12 @@
         
         public function readBooks(){
             $querry='
-                SELECT
-                books.id,
-                book_name,
-                author,
-                year_published,
-                description,
-                dCount,
-                img_url,
-                url
-                FROM
-                books
-                INNER JOIN
-                images
-                ON
-                books.id=images.book_id
-                INNER JOIN
-                downloads
-                ON
-                downloads.book_id=books.id
-                INNER JOIN
-                books_url
-                ON
-                books_url.book_id=books.id
-                ORDER BY 
-                books.id
-                DESC
+            select books_url.id,book_name,author,year_published,description,img_url, url, dCount from books join images on images.book_id=books.id join books_url on books_url.book_id=books.id left join downloads on downloads.book_id=books.id
             ';
+            // $querry =
+            //         '
+            //         select book_name,author,year_published,description,img_url, url from books join images on images.book_id=books.id join books_url on books_url.book_id=books.id
+            //         ';
             $stmt=$this->db->prepare($querry);
             $stmt->execute();
 
@@ -84,40 +63,53 @@
             
             $querry2 = '
                     INSERT INTO images
-                    (image_url, book_id)
+                    (img_url, book_id)
                     VALUES(
                         :image_url,
                         :book_id
                     )
             ';
+            $querry1=
+                'INSERT INTO books_url
+                (url, book_id)
+                VALUES(
+                    :book_url,
+                    :book_id
+                )';
+            try{
+                $stmt = $this->db->prepare($querry);
 
-            $stmt = $this->db->prepare($querry);
+                $this->book_name=htmlspecialchars(strip_tags($this->book_name));
+                $this->author=htmlspecialchars(strip_tags($this->author));
+                $this->year_published=htmlspecialchars(strip_tags($this->year_published));
+                $this->description=htmlspecialchars(strip_tags($this->description));
+                
+                $stmt->bindParam(':book_name', $this->book_name);
+                $stmt->bindParam(':author', $this->author);
+                $stmt->bindParam(':year_published', $this->year_published);
+                $stmt->bindParam(':description', $this->description);
+                $stmt->execute();
+                $lastId=$this->db->lastInsertId();
+                //insert image_url 
+                $stmt1 = $this->db->prepare($querry2);
+                $this->img_url=htmlspecialchars(strip_tags($this->img_url));
+                $stmt1->bindParam(':image_url',$this->img_url);
+                $stmt1->bindParam(':book_id',$lastId);
+                $stmt1->execute();
 
-            $this->book_name=htmlspecialchars(strip_tags($this->book_name));
-            $this->author=htmlspecialchars(strip_tags($this->author));
-            $this->year_published=htmlspecialchars(strip_tags($this->year_published));
-            $this->description=htmlspecialchars(strip_tags($this->description));
-            
-            $stmt->bindParam(':book_name', $this->book_name);
-            $stmt->bindParam(':author', $this->author);
-            $stmt->bindParam(':year_published', $this->year_published);
-            $stmt->bindParam(':description', $this->description);
-            
-            //insert book_url 
-            $lastid=$this->db->lastInsertId();
-            $stmt1 = $this->db->prepare($querry2);
-            
-            $this->book_url=htmlspecialchars(strip_tags($this->book_url));
-            
-            $stmt1->bindParam(':book_url',$this->img_url);
-            $stmt1->bindParam(':book_id',$lastid);
-            if($stmt->execute()){
-                if($stmt1->execute()){
-                    return true;
-                } 
+                //insert book_url
+                $stmt2 = $this->db->prepare($querry1);
+                $this->book_url=htmlspecialchars(strip_tags($this->book_url));
+                $stmt2->bindParam(':book_url',$this->book_url);
+                $stmt2->bindParam(':book_id',$lastId);
+                $stmt2->execute();
+                return true;
+            }catch(PDOException $e){
+                echo $e->getMessage();
+                return false;
             }
-
-            return false;
+            
+            
         }
 
         public function updateBook()
