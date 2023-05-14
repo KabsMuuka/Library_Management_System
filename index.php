@@ -17,7 +17,7 @@
 <!DOCTYPE html>
 <html> 
     <head>
-         <link rel="stylesheet" href="css.css">
+         <link rel="stylesheet" href="admin/style.css">
          <script src="./app.js" defer></script>
     </head>
     <body>
@@ -58,7 +58,7 @@
                     <h1 class="nav-title">Library Management System</h1>
                     <button class="btn-profile">
                         <div class="profile-img">
-                            <img class=''src="imgs/0.webp" alt="profile">
+                            <img class=''src="admin/imgs/0.webp" alt="profile">
                         </div>
                     </button>
                 </div>
@@ -71,7 +71,7 @@
                     <h3 class="title">Add New Book</h3>
                     <button class="btn-cancel"><h3 class="minimise">X</h3></button>
                 </div>
-                <form action="uploads.php" class="form" method="POST" enctype="multipart/form-data" >
+                <form action="admin/uploads.php" class="form" method="POST" enctype="multipart/form-data" >
                     <input class="bookName" name="book_name" type="text"  placeholder="Book Name">
                     <input class="author" name="author" type="text"  placeholder="Author">
                     <input class="year" name="year_published"  type="date">
@@ -92,11 +92,11 @@
                             <thead>
                                     <tr class="theader">
                                         <th>ID</th>
-                                        <th>Book Name</th>
-                                        <th>Author</th>
-                                        <th>Year Published</th>
-                                        <th>Downloads</th>
-                                        <th>Description</th>
+                                        <th style="width: 200px;">Book Name</th>
+                                        <th style="width: 150px;">Author</th>
+                                        <th style="width:130px;">Year Published</th>
+                                        <th style="width:100px;">Downloads</th>
+                                        <th style="width: 550px;">Description</th>
                                         <th>Action</th>
                                         <th>Action</th>
                                     </tr>
@@ -125,26 +125,7 @@
                             </tbody>
                             
                         </table>                        
-                    </div>  
-
-                <div class="users">
-                        <table>
-                            <tr class="user-theader">
-                                <th>ID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Email</th>
-                            </tr>
-                            <tr class="user-tbody">
-                                <td>1</td>
-                                <td>Blessing</td>
-                                <td>Mwandira</td>
-                                <td>chile02@gmail.com</td>
-                            </tr>
-                        </table>
-                </div>
-
-
+                    </div>
         </div>
 
     </main>
