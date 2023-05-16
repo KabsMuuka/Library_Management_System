@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@300;400;700&family=Noto+Sans&family=Poppins:wght@100;400&family=Roboto+Mono:wght@300&family=Roboto:ital,wght@0,300;0,400;1,500&family=Ubuntu&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@300;400;700&family=Noto+Sans&family=Poppins:wght@100;400&family=Roboto+Mono:wght@300&family=Roboto:ital,wght@0,300;0,400;1,500&family=Ubuntu&display=swap');
 *,
 ::after,
 ::before{
@@ -151,10 +151,7 @@ table, td, th {
   }
 
 .tbody{
-    color: #008000;
-}
-.bk_body{
-    background-color: #000;
+    color: #010101;
 }
 
 .books td, tr{
@@ -163,7 +160,7 @@ table, td, th {
 .edit{
     color:#fff;
     padding: 0.2em .8em;
-    background-color: #008000;
+    background-color: #0000;
     border: none;
     outline: 0;
     cursor: pointer;
@@ -221,4 +218,4 @@ table, td, th {
 .footer{
     text-align: center;
 }
-
+ */

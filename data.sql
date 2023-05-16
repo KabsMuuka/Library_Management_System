@@ -149,7 +149,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('2020778735','Blessings','Chile','chile02@gmail.com','chilemwandira02'),('2020778766','Chileshe','Chile','chile@updated.com','Its been update');
+INSERT INTO `users` VALUES ('7629770135','Blessings','Chile','chile02@gmail.com','chilemwandira02'),('2828778766','Chileshe','Chile','chile@updated.com','Its been update');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

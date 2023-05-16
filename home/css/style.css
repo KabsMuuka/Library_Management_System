@@ -1,0 +1,103 @@
+*,
+::after,
+::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #ffefd5;
+}
+a{
+    text-decoration: none;
+    color: #010101;
+}
+li{
+    list-style: none;
+}
+.logo span{
+    color: #6e6e6e;
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f1f1f1;
+    box-shadow: 0px 1px 15px #6e6e6e;
+    z-index: 15;
+}
+.nav-elements ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+.nav-elements a:hover{
+    color: #6e6e6e;
+}
+
+.book-week{
+    background-image: url('./../images/b19.jpg');
+    background-size: cover;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    cursor: pointer;
+    margin: 20px 0;
+}
+
+.book-week a{
+    text-align: center;
+    margin: auto;
+}
+.book-week p:hover{
+    color: #010101;
+    cursor: pointer;
+}
+.hero{
+    color: #f1f1f1;
+    margin: auto;
+    font-size: 40px;
+    font-weight: 600;
+}
+img{
+    width: 100%;
+}
+.books{
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.book-card img{
+    border-radius: 8px 8px 0 0;
+}
+.book-card{
+    width: 300px;
+    background-color: #ffefd5;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px #6e6e6e;
+}
+
+.book-card:hover{
+    box-shadow: 0 2px 5px #010101;
+}
+.book-name{
+    font-size: 20px;
+    text-align: left;
+    padding: 10px;
+}
+.author{
+    font-size: 15px;
+    text-align: left;
+    padding: 0 0 0 10px;
+}
+.elements{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}

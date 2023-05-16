@@ -1,0 +1,76 @@
+*,
+::after,
+::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    background-color: #01010f;
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin: 100px auto;
+    width: 400px;
+    box-shadow: 0 0 15px #ffefd5;
+}
+.btns{
+    background-color: #01010f;
+    padding: 30px 30px 10px;
+}
+.login,
+.signup{
+    background-color: #01010f;
+    color: #fff;
+    padding: 10px;
+    width: 100px;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 5px #ffefd5;
+    font-size: 18px;
+    width: 167px;
+    cursor: pointer;
+}
+.login:focus,
+.signup:focus{
+    color: #01010f;
+    background-color: #ffefd5;
+}
+.login-form{
+    background-color: #01010f;
+    width: 400px;
+}
+
+.login-form form{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px;
+}
+.login-form input[type=text],
+.login-form input[type=password]{
+    height: 40px;
+    font-size: 20px;
+    padding-left: 5px;
+    outline: none;
+    box-shadow: 0 0 5px #fff;
+    border: none;
+    background-color: #01010f;
+    color: #fff;
+}
+.login-form label{
+    color: #fff;
+}
+.login-form button{
+    color: #01010f;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    padding: 10px 0;
+    cursor: pointer;
+    font-size: 18px;
+}

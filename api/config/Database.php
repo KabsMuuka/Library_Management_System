@@ -1,10 +1,10 @@
 <?php
 
 class Database{
-    private $host= "localhost:3306";
-    private $dbname="id20748849_student_library";
+    private $host= "127.0.0.1";
+    private $dbname="student_library";
     private $username="root";
-    private $password="Password1234.";
+    private $password="tumbwerobert";
     private $conn;
 
     public function connect(){
