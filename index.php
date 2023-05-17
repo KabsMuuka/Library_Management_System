@@ -22,7 +22,7 @@
                         <input type="checkbox" name="show" id="">
                         <label for="show">Show Password</label>
                     </div>
-                    <button type="submit">Log in</button>
+                    <a href="/home/home.php">Login</a>
                 </form>
             </div>
             

@@ -17,7 +17,7 @@ include_once('./../models/All.php');
 
     if($rowCount>0){
         $arrayItems=array();
-        $arrayItems['data'] = array();
+        // $arrayItems['data'] = array();
 
         while($row=$result->fetch(PDO::FETCH_ASSOC)){
             extract($row);
@@ -32,7 +32,7 @@ include_once('./../models/All.php');
                 'dCount'=>$dCount
             );
 
-            array_push($arrayItems['data'], $userItems);
+            array_push($arrayItems, $userItems);
         }
         echo json_encode($arrayItems);
     }else{

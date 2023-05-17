@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SLMS</title>
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/app.js"></script>
 </head>
 <body>
     <header>
@@ -120,9 +121,18 @@
                 </div>
             </a>
         </div>
+        <div class="btns">
+            <a href="">prev</a>
+            <a href="">1</a>
+            <a href="">2</a>
+            <a href="">3</a>
+            <a href="">next</a>
+        </div>
     </main>
     <footer>
-
+        <div class="footer">
+            <p>Copyright &copy; <span class="year">2023</span></p>
+        </div>
     </footer>
 </body>
 </html>

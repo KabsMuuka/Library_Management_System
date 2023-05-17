@@ -7,7 +7,7 @@
 }
 body{
     height: 100vh;
-    background-color: #01010f;
+    background-color: #ffefd5;
 }
 main{
     display: flex;
@@ -16,32 +16,32 @@ main{
     align-content: center;
     margin: 100px auto;
     width: 400px;
-    box-shadow: 0 0 15px #ffefd5;
+    box-shadow: 0 0 15px #01010f;
 }
 .btns{
-    background-color: #01010f;
+    background-color: #ffefd5;
     padding: 30px 30px 10px;
 }
 .login,
 .signup{
-    background-color: #01010f;
-    color: #fff;
+    background-color: #ffefd5;
+    color: #01010f;
     padding: 10px;
     width: 100px;
     outline: none;
     border: none;
-    box-shadow: 0 0 5px #ffefd5;
+    box-shadow: 0 0 5px #01010f;
     font-size: 18px;
     width: 167px;
     cursor: pointer;
 }
 .login:focus,
 .signup:focus{
-    color: #01010f;
-    background-color: #ffefd5;
+    color: #ffefd5;
+    background-color: #01010f;
 }
 .login-form{
-    background-color: #01010f;
+    background-color: #ffefd5;
     width: 400px;
 }
 
@@ -57,20 +57,24 @@ main{
     font-size: 20px;
     padding-left: 5px;
     outline: none;
-    box-shadow: 0 0 5px #fff;
+    box-shadow: 0 0 4px #01010f;
     border: none;
-    background-color: #01010f;
-    color: #fff;
+    background-color: #ffefd5;
+    color: #01010f;
 }
 .login-form label{
-    color: #fff;
-}
-.login-form button{
     color: #01010f;
-    background-color: #fff;
+}
+.login-form a{
+    color: #ffefd5;
+    background-color: #01010f;
     border: none;
     outline: none;
     padding: 10px 0;
     cursor: pointer;
     font-size: 18px;
+    transition: .3s ease-in-out;
+}
+.login-form a:hover{
+    border-radius: 8px;
 }
