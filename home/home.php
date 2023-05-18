@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SLMS</title>
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/app.js"></script>
+    <script src="./js/app.js" defer></script>
+    <script src="./js/home.js" defer></script>
+
 </head>
 <body>
     <header>
@@ -16,10 +18,10 @@
             </div>
             <div class="nav-elements">
                 <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Featured</a></li>
-                    <li><a href="">Trending</a></li>
-                    <li><a href="">About</a></li>
+                    <li><a class="home" href="">Home</a></li>
+                    <li><a class="featured" href="">Featured</a></li>
+                    <li><a class="trending" href="">Trending</a></li>
+                    <li><a class="search" href="">Search</a></li>
                 </ul>
             </div>
         </div>
@@ -32,7 +34,7 @@
         </div>
 
         <div class="books">
-            <a href="">
+            <!-- <a href="">
                 <div class="book-card">
                     <img src="./images/b19.jpg" alt="">
                     <p class="book-name">Rich Dad, Poor Data</p>
@@ -119,7 +121,7 @@
                         <p class="star">star</p>
                     </div>
                 </div>
-            </a>
+            </a> -->
         </div>
         <div class="btns">
             <a href="">prev</a>
