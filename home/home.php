@@ -20,6 +20,7 @@
                 <ul>
                     <li><a class="home" href="">Home</a></li>
                     <li><a class="featured" href="">Featured</a></li>
+                    <li> <a href="/admin/admin.php">Admin</a> </li>
                     <li><a class="trending" href="">Trending</a></li>
                     <li><a class="search" href="">Search</a></li>
                 </ul>
