@@ -1,24 +1,9 @@
-<?php
-// session_start();
-// include_once 'uploads.php';
-
-// // Check if a delete request has been made
-// if (isset($_POST['delete'])) {
-//     $file_to_delete = $_POST['file_to_delete'];
-//     if (file_exists($file_to_delete)) {
-//         unlink($file_to_delete);
-//         header('Location: admin.php');
-//         exit;
-//     }
-// }
-// // Get a list of uploaded files
-// $uploaded_files = glob('uploads/*.{jpg,png,gif,pdf}', GLOB_BRACE);
-// ?>
 <!DOCTYPE html>
 <html> 
     <head>
          <link rel="stylesheet" href="./style.css">
          <script src="./app.js" defer></script>
+     
     </head>
     <body>
     <!-- <a class="profile" href="profile.php" > <img class="img" src="imgs/0.webp" alt=""> </a> -->
@@ -71,7 +56,7 @@
                     <h3 class="title">Add New Book</h3>
                     <button class="btn-cancel"><h3 class="minimise">X</h3></button>
                 </div>
-                <form action="admin/uploads.php" class="form" method="POST" enctype="multipart/form-data" >
+                <form action="uploads.php" class="form" method="POST" enctype="multipart/form-data" >
                     <input class="bookName" name="book_name" type="text"  placeholder="Book Name">
                     <input class="author" name="author" type="text"  placeholder="Author">
                     <input class="year" name="year_published"  type="date">
@@ -105,7 +90,7 @@
                             <tbody>
                                         
                                         <?php 
-                                            $url='http://localhost/php_projects/Library_Management_System/api/user/readBooks.php';
+                                            $url='http://localhost/Library_Management_System/api/user/readBooks.php';
                                             
                                             $json = json_decode(file_get_contents($url));
                                             $user_data = $json->data;
@@ -127,11 +112,9 @@
                         </table>                        
                     </div>
         </div>
-
     </main>
     <footer>
-            <p>made with &#10084;&#65039; by Group 7</p>
-            <p>&copy; All rights Reserved</p>
+            
     </footer>
     
     </body>
