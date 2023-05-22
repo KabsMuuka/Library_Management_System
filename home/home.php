@@ -19,6 +19,7 @@
                 <ul>
                     <li><a class="home" href="">Home</a></li>
                     <li><a class="featured" href="">Featured</a></li>
+                    <li> <a href="/admin/admin.php">Admin</a> </li>
                     <li><a class="trending" href="">Trending</a></li>
                     <li><form id="form"action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
                         <input type="search" name="search" id="search" placeholder="Search">

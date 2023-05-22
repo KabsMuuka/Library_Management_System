@@ -1,5 +1,5 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@300;400;700&family=Noto+Sans&family=Poppins:wght@100;400&family=Roboto+Mono:wght@300&family=Roboto:ital,wght@0,300;0,400;1,500&family=Ubuntu&display=swap');
-*,
+ @import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@300;400;700&family=Noto+Sans&family=Poppins:wght@100;400&family=Roboto+Mono:wght@300&family=Roboto:ital,wght@0,300;0,400;1,500&family=Ubuntu&display=swap');
+
 ::after,
 ::before{
     box-sizing: border-box;
@@ -13,9 +13,8 @@ main{
     padding: 20px;
 }
 footer{
-    padding: 10px;
-    background-color: #030303;
-    position: fixed;
+    margin-top: 10px;
+    
     bottom: 0;
     color: #e9e6e6;
     width: 100%;

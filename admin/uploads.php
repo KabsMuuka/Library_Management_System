@@ -21,13 +21,12 @@
             $book_file_ext = strtolower(end(explode('.',$book_file_name)));
 
             
-            
             //cover image properties
             $image_file_name= $_FILES['image-file']['name'];
             $image_file_size= $_FILES['image-file']['size'];
             $image_file_name= $_FILES['image-file']['name'];
             $image_file_tmp= $_FILES['image-file']['tmp_name'];
-            $image_target_dir = 'uploads/images/'.$image_file_name;
+            $image_target_dir = 'uploads/images/' . $image_file_name;
             $image_file_ext = strtolower(end(explode('.',$image_file_name)));
             if(in_array($book_file_ext,$allowed_book_ext) && in_array($image_file_ext,$allowed_image_ext)){
                 if($book_file_size<=50000000 && $image_file_size<=1000000){
@@ -50,7 +49,7 @@
 
             try{
                     // API endpoint URL
-                    $url = 'http://localhost/php_projects/Library_Management_System/api/user/createBooks.php';
+                    $url = 'https://schoollibray.000webhostapp.com/api/user/createBooks.php';
 
                     // Initialize curl
                     $ch = curl_init();
