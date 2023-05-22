@@ -88,7 +88,6 @@
                             </thead>
                            
                             <tbody>
-                                        
                                         <?php 
                                             $url='http://localhost/Library_Management_System/api/user/readBooks.php';
                                             

@@ -49,7 +49,7 @@
 
             try{
                     // API endpoint URL
-                    $url = 'http://localhost/php_projects/Library_Management_System/api/user/createBooks.php';
+                    $url = 'https://schoollibray.000webhostapp.com/api/user/createBooks.php';
 
                     // Initialize curl
                     $ch = curl_init();
