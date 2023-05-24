@@ -1,34 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="css/style.css">
+  <title>Library Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('images/background.png'); /* Set background image */
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8); /* Add opacity to the background color */
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Rest of the CSS code... */
+  </style>
 </head>
 <body>
-    <main>
-        <div class="card">
-                <div class="btns">
-                    <button class="login">Login</button>
-                    <button class="signup">SignUp</button>
-                </div>
-            <div class="login-form">
-                <form action="">
-                    <input type="text" name="userid"placeholder="User Id">
-                    <input type="password" name="password" id="password" placeholder="password">
-                    <div class="show-pass">
-                        <input type="checkbox" name="show" id="">
-                        <label for="show">Show Password</label>
-                    </div>
-                    <a href="/home/home.php">Login</a>
-                </form>
-            </div>
-            
-        </div>
-    </main>
-
-
+  <div class="container">
+    <h1>Library Login</h1>
+    <form method="POST" action="home/home.php">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      </div>
+      <div class="form-group">
+        <button type="submit" name="login">Login</button>
+      </div>
+    </form>
+  </div>
 </body>
 </html>
