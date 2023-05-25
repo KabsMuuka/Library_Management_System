@@ -23,7 +23,7 @@
                     <li><a class="trending" href="">Trending</a></li>
                     <li><form id="form"action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
                         <input type="search" name="search" id="search" placeholder="Search">
-                        <button type="submit" name="search_button">S</button>
+                        <button type="submit"  name="search_button">S</button>
                         </form>
                     </li>
                 </ul>
