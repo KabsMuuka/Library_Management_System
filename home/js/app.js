@@ -15,3 +15,7 @@ menu.addEventListener('click',()=>{
     }
 });
 
+const year = document.querySelector('.year');
+
+let thisYear = new Date();
+year.innerHTML =thisYear.getFullYear();

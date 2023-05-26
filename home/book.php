@@ -63,7 +63,7 @@
                         </div>
                         <div class="elements">
                             <p class="downloads"><?php echo $year ?></p>
-                            <a href="<?php echo $download?> download">download</a>
+                            <a href='"<?php echo $download?>" download'>download</a>
                         </div>
                     </div>
                 </div>
