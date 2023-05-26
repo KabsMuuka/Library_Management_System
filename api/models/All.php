@@ -15,6 +15,7 @@
         public $year_published;
         public $date_created;
         public $description;
+        public $role;
         private $db;
 
         function __construct($db){
@@ -25,7 +26,10 @@
             $querry= '
                 SELECT
                 id,
-                password
+                password,
+                first_name,
+                last_name,
+                role,
                 FROM users
             ';
             $stmt = $this->db->prepare($querry);
@@ -146,14 +150,15 @@
         public function createUser(){
             $querry='
                 INSERT INTO users(
-                    id,first_name,last_name,email,password
+                    id,first_name,last_name,email,password,role
                     )
                 VALUES(
                     :id,
                     :first_name,
                     :last_name,
                     :email,
-                    :password
+                    :password,
+                    :role
                     )
             ';
 
@@ -164,13 +169,14 @@
             $this->last_name=htmlspecialchars(strip_tags($this->last_name));
             $this->email=htmlspecialchars(strip_tags($this->email));
             $this->password=htmlspecialchars(strip_tags($this->password));
+            $this->role=htmlspecialchars(strip_tags($this->role));
 
             $stmt->bindParam(':id', $this->student_id);
             $stmt->bindParam(':first_name', $this->first_name);
             $stmt->bindParam(':last_name', $this->last_name);
             $stmt->bindParam(':email', $this->email);
             $stmt->bindParam(':password', $this->password);
-
+            $stmt->bindParam(':role', $this->role);
             
 
             if($stmt->execute()){
@@ -187,7 +193,8 @@
                     first_name=:first_name, 
                     last_name=:last_name, 
                     email=:email, 
-                    password=:password
+                    password=:password,
+                    role=:role
                     WHERE id=:id
             ';
             $stmt = $this->db->prepare($querry);
@@ -197,11 +204,13 @@
             $this->last_name=htmlspecialchars(strip_tags($this->last_name));
             $this->email=htmlspecialchars(strip_tags($this->email));
             $this->password=htmlspecialchars(strip_tags($this->password));
+            $this->role=htmlspecialchars(strip_tags($this->role));
 
             $stmt->bindParam(':first_name', $this->first_name);
             $stmt->bindParam(':last_name', $this->last_name);
             $stmt->bindParam(':email', $this->email);
             $stmt->bindParam(':password', $this->password);
+            $stmt->bindParam(':role', $this->role);
             $stmt->bindParam(':id', $this->student_id);
 
             if($stmt->execute()){

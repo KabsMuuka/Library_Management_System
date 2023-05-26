@@ -1,43 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Library Login Page</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-image: url('images/background.png'); /* Set background image */
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
 
-    .container {
-      max-width: 400px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: rgba(255, 255, 255, 0.8); /* Add opacity to the background color */
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    /* Rest of the CSS code... */
-  </style>
+  
 </head>
 <body>
-  <div class="container">
-    <h1>Library Login</h1>
-    <form method="POST" action="home/home.php">
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" placeholder="Enter your username" required>
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password" required>
-      </div>
-      <div class="form-group">
-        <button type="submit" name="login">Login</button>
-      </div>
-    </form>
+<section>
+  <div class="log_img">
+    <br> <br><br>
+    <div class="box1">
+        <h1 style="text-align: center; font-size: 25px;">User Login Form</h1><br>
+        <br><br>
+        <div class="login">
+          <form action="./signin.php" method="post">
+            <input type="text" name="userid" placeholder="Userid" required=""> <br><br>
+            <input type="password" name="password" placeholder="Password" required=""> <br><br>
+            <button name="login">Login</button>
+          </form>
+        </div>
+      <p style="color: white; padding-left: 15px;">
+        <br><br>
+        <a style="color:white;" href="">Forgot password?</a> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+        New to this website?<a style="color: white;" href="registration.html">Sign Up</a>
+      </p>
+    </div>
   </div>
+</section>
 </body>
 </html>

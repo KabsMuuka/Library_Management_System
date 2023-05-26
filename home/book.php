@@ -32,7 +32,7 @@
 
             $bookId = $_GET['id'];
 
-            $url='http://localhost/php_projects/Library_Management_System/api/user/readBooks.php';                       
+            $url='https://schoollibray.000webhostapp.com/api/user/readBooks.php';                       
             $json = json_decode(file_get_contents($url));
             $user_data = $json;
 

@@ -45,11 +45,11 @@
 
         <div class="books">
             <?php 
-                // ini_set('display_errors', 1);
-                // error_reporting(E_ALL);
+                ini_set('display_errors', 1);
+                error_reporting(E_ALL);
                 $url='https://schoollibray.000webhostapp.com/api/user/readBooks.php';                       
                 $json = json_decode(file_get_contents($url));
-                $user_data = $json->data;
+                $user_data = $json;
 
                 
 
