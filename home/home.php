@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['userid'])){
+    header(
+        'Location:http://localhost/php_projects/Library_Management_System/index.php'
+    );
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +37,7 @@
                     <li><p class="user-profile">KM</p></li>
                     <li><a class="home" href="">Home</a></li>
                     <li><a class="featured" href="">Featured</a></li>
-                    <li><a href="">Log out</a></li>
+                    <li><a href="./../signout.php">Log out</a></li>
                     <li><form class="show" id="form"action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
                         <input type="search" name="search" id="search" placeholder="Search">
                         <button type="submit"  name="search_button">S</button>
@@ -44,7 +55,10 @@
         </div>
 
         <div class="books">
+
             <?php 
+
+                
                 ini_set('display_errors', 1);
                 error_reporting(E_ALL);
                 $url='https://schoollibray.000webhostapp.com/api/user/readBooks.php';                       
