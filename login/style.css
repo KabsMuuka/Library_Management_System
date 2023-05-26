@@ -22,7 +22,8 @@ background:transparent;
 body {
 line-height:1;
 height: 100vh;
-background-image: url("images/3.jpg");
+width: 100vw;
+overflow: hidden;
 }
 
 article,aside,details,figcaption,figure,
@@ -113,19 +114,13 @@ header
 img{
 	width: 100%;
 }
-section
+/* section
 {
 	height: 550px;
-
 	width: 1361px;
 	background-color: grey;
-}
-footer
-{
-	height: 82px;
-	width: 1361px;
-	background-color: black;
-}
+} */
+
 .logo
 {
 	float :left;
@@ -176,7 +171,11 @@ section .sec_img
 {
 	height: 650px;
 	margin-top: 0px;
+	background-image: url("https://images.unsplash.com/photo-1419640303358-44f0d27f48e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=785&q=80");
+	background-size: cover;
+	background-repeat: none;
 }
+
 .box1
 {
 	height: 350px;
@@ -199,15 +198,18 @@ input
 }
 /*------------------------------registration--------------------*/
 .reg_img
+
 {
-	height: 630px;
-	margin-top: 0px;
-	background-image: url("images/4.png");
+	padding-top: 50px;
+	background-image: url("https://images.unsplash.com/photo-1518655048521-f130df041f66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80");
+	background-repeat: none;
+	background-size: cover;
+	height: 100vh;
 }
 .box2
 {
-	height: 589px;
 	width: 400px;
+	border-radius: 40px;
 	background-color: black;
 	margin: 0px auto;
 	opacity: .7;
