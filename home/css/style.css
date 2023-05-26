@@ -68,9 +68,6 @@ button[type="submit"]:hover {
 
 button[type="submit"]:focus,
 input[type="search"]:focus {
-  box-shadow: 2 2 6px 2
- #1183d6;
-  border-color: #1183d6;
   outline: none;
 }
 
@@ -157,7 +154,15 @@ img{
     border-radius: 8px;
     box-shadow: 0 2px 5px #6e6e6e;
 }
-
+.downloads{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.downloads span{
+    font-size: 18px;
+}
 .book-card:hover{
     box-shadow: 0 2px 5px #010101;
 }
@@ -166,6 +171,7 @@ img{
     text-align: left;
     padding: 10px;
 }
+
 .author{
     font-size: 15px;
     text-align: left;
@@ -180,7 +186,7 @@ img{
     width: 300px;
 }
 .single-book-card{
-    width: 75%;
+    width: 800px;
     display: flex;
     gap: 20px;
     background-color: #ffefd5;
@@ -221,5 +227,110 @@ footer{
     padding: 5px 10px;
     box-shadow: 0 2px 10px #6e6e6e,
                 0 -2px 10px #6e6e6e;
+}
+
+.menu{
+    width: 30px;
+    height: 30px;
+    visibility: hidden;
+}
+.cross{
+    position: relative;
+}
+.cross .first, .cross .second{
+    border: 2px solid #333232;
+    width: 100%;
+    margin: 0 0 5px 0;
+}
+.cross .first{
+    rotate: 40deg;
+    position: absolute;
+    bottom: 10px;
+}
+.cross .second{
+    rotate: 310deg;
+    position: absolute;
+    bottom: 10px;
+}
+/* .first, .second, .third{
+    border: 2px solid #333232;
+    width: 100%;
+    margin: 0 0 5px 0;
+} */
+
+.user-profile{
+    visibility: hidden;
+}
+
+
+@media screen and (max-width:600px){
+    body{
+        height: 100vh;
+        width: 100vw;
+    }
+    .menu{
+        visibility: visible;
+    }
+    .nav{
+        position: relative;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: space-between;
+    }
+
+    .nav-elements ul{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        background-color: #6e6e6e;
+        padding: 10px;
+        border-radius: 4px;
+        filter: blur(.8);
+    }
+
+
+    .nav-elements{
+        position: absolute;
+        right: 20px;
+        top:60px;
+        visibility: hidden;
+    }
+    .nav-elements a:hover{
+        filter: brightness(200%);
+    }
+    .nav-elements a{
+        color: #f1f1f1;
+    }
+
+    .show{
+        visibility: visible;
+    }
+    #form{
+        position: absolute;
+        left: -350px;
+        bottom: 205px;
+    }
+
+    .book-card{
+        width: 250px;
+        background-color: #ffefd5;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px #6e6e6e;
+    }
+
+    .single-book-card img{
+        width:300px;
+    }
+    .single-book-card{
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        background-color: #ffefd5;
+        box-shadow: 0 2px 10px #6e6e6e;
+        margin-bottom: 20px;
+    }
+
 }
 

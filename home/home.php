@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SLMS</title>
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/app.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
@@ -17,13 +16,18 @@
             <div class="logo">
                 <a href="#"><p>G<span>7</span></p></a>
             </div>
+            <li class="menu">
+                <a class="menu-icon" href="">
+                <span class="material-symbols-outlined menu-bar">menu</span>
+                </a>
+            </li>
             <div class="nav-elements">
                 <ul>
+                    <li><p class="user-profile">KM</p></li>
                     <li><a class="home" href="">Home</a></li>
                     <li><a class="featured" href="">Featured</a></li>
-                    <li> <a href="/admin/admin.php">Admin</a> </li>
-                    <li><a class="trending" href="">Trending</a></li>
-                    <li><form id="form"action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+                    <li><a href="">Log out</a></li>
+                    <li><form class="show" id="form"action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
                         <input type="search" name="search" id="search" placeholder="Search">
                         <button type="submit"  name="search_button">S</button>
                         </form>
@@ -122,11 +126,6 @@
                 echo '<a href="?page='.($current_page-1).'">prev</a>';
             }
             ?>
-            <!-- <a href="">prev</a>
-            
-            <a href="">2</a>
-            <a href="">3</a>
-            <a href="">next</a> -->
         </div>
     </main>
     <footer>
@@ -134,5 +133,7 @@
             <p>Copyright &copy; <span class="year">2023</span></p>
         </div>
     </footer>
+
+    <script src="./js/app.js"></script>
 </body>
 </html>
