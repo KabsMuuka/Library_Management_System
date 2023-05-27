@@ -15,7 +15,7 @@
 
     <div class="box2">
         <h1 style="text-align: center; font-size: 25px;">User Registration Form</h1><br>
-      <form class="register" name="Registration" action="./register" method="POST">
+      <form class="register" name="Registration" action="./register.php" method="POST">
         <br><br>
         <div class="login">
           <input class="first" type="text" name="first" placeholder="First Name"=""> <br><br>

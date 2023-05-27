@@ -9,24 +9,36 @@ const email = document.querySelector('.email');
 const signup = document.querySelector('#signup');
 
 const register =document.querySelector('.register');
-console.log("Hello");
+
 register.addEventListener('submit',(e)=>{
-    if(first.value==""||last.value==""||email.value==""){
+    if(!(first.value==""||last.value==""||email.value=="")){
+        if(checkPass(password.value,comfirm.value)){
+            if(checkPasswordLength(password.value)){
+                if(!checkPasswordValidity(password.value)){
+                    pass_match.innerHTML = "password needs to have special chars and numbers";
+                    pass_match.style.display='block';
+                    e.preventDefault();
+                }
+            }else{
+                pass_match.innerHTML = "Passwords too short, 8 or more characters";
+                pass_match.style.display='block';
+                e.preventDefault();
+            }
+        }else{
+            pass_match.innerHTML = "Passwords do not match";
+            pass_match.style.display='block';
+            e.preventDefault();
+        }
+    }else{
         pass_match.innerHTML = "One or more fields is empty"
         pass_match.style.display='block';
         e.preventDefault();
-    }
-    if(!checkPass(password.value,comfirm.value)){
-        pass_match.innerHTML = "Passwords do not match";
-        pass_match.style.display='block';
-        e.preventDefault();
-    }
-    
+    }  
     
 })
 
 function checkPass(pass, comfirm){
-    if(!pass=="" &&checkPasswordLength(pass)&&checkPasswordLength(pass)){
+    if(!pass==""){
         if(pass==comfirm){
             return true;
         }
@@ -41,9 +53,9 @@ function checkPasswordValidity(pass) {
     let specialCharsRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
   
     // Check if the string contains letters, numbers, and special characters
-    let containsLetters = lettersRegex.test(inputString);
-    let containsNumbers = numbersRegex.test(inputString);
-    let containsSpecialChars = specialCharsRegex.test(inputString);
+    let containsLetters = lettersRegex.test(pass);
+    let containsNumbers = numbersRegex.test(pass);
+    let containsSpecialChars = specialCharsRegex.test(pass);
     // Return true if the string contains all three types of characters, otherwise return false
     return containsLetters && containsNumbers && containsSpecialChars;
   }
@@ -51,6 +63,8 @@ function checkPasswordValidity(pass) {
 function checkPasswordLength(pass){
     if(pass.length>=8){
         return true;
+    }else{
+            return false;
     }
-    return false;
+
 }
