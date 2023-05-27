@@ -216,3 +216,23 @@ input
 	color: white;
 	padding: 20px;
 }
+.box2 button{
+	padding: 5px 20px;
+	cursor: pointer;
+	background-color: #010101;
+	border: none;
+	outline: none;
+	color: #f1f1f1;
+	box-shadow: 0 2px 5px #f1f1f1;
+}
+.comfirm_pass{
+	display: none;
+}
+.pass_match{
+	display: none;
+}
+
+.comfirm_pass,
+.pass_match{
+	color: red;
+}

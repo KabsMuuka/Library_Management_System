@@ -6,7 +6,8 @@ $login = $_POST['login'];
 if(isset($login)){
    checkStudent();
 }
-
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 function checkStudent(){
 $user = htmlspecialchars(strip_tags($_POST['userid']));
 $password = $_POST['password'];
@@ -15,7 +16,7 @@ $password = $_POST['password'];
     $users = json_decode(file_get_contents($url));
 
     foreach($users as $single){
-        if($user == $single->id && password_verify($password, '$2y$10$oImNb.WVyNdwcrebgESNdedgDzaaIu\/xIgfSql96SSzWTZn4wWeUW')){
+        if($user == $single->id && password_verify($password, $single->password)){
             session_start();
             $_SESSION['userid']= $single->id;
             $_SESSION['password']= $single->password;
