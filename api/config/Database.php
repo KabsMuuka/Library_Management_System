@@ -2,9 +2,9 @@
 
 class Database{
     private $host= "localhost";
-    private $dbname="id20748849_student_library";
-    private $username="id20748849_root";
-    private $password="T624183.bob";
+    private $dbname="student_library";
+    private $username="root";
+    private $password="tumbwerobert";
     private $conn;
 
     public function connect(){

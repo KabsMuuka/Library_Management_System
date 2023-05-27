@@ -1,3 +1,14 @@
+<?php
+
+session_start();
+
+if(!(isset($_SESSION['userid']))){
+    header(
+        'Location:http://localhost/php_projects/Library_Management_System/index.php'
+    );
+}
+
+?>
 <!DOCTYPE html>
 <html> 
     <head>

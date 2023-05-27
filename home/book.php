@@ -63,7 +63,8 @@
                         </div>
                         <div class="elements">
                             <p class="downloads"><?php echo $year ?></p>
-                            <a href='"<?php echo $download?>" download'>download</a>
+                            <p class="book_id" style="visibility:hidden;"><?php echo $bookId?></p>
+                            <a class="download" href="#">download</a>
                         </div>
                     </div>
                 </div>
@@ -73,5 +74,6 @@
 
         </div>
     </main>
+    <script src="./book.js"></script>
 </body>
 </html>
