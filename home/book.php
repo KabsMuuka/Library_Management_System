@@ -64,7 +64,7 @@
                         <div class="elements">
                             <p class="downloads"><?php echo $year ?></p>
                             <p class="book_id" style="visibility:hidden;"><?php echo $bookId?></p>
-                            <a class="download" href="#">download</a>
+                            <a class="download" href="">download</a>
                         </div>
                     </div>
                 </div>
