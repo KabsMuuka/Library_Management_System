@@ -1,21 +1,5 @@
 <?php
  
-define('ROLE_STUDENT','student');
-define('ROLE_ADMIN','admin');
-
-$permissions=[
-    ROLE_STUDENT=>[
-        'view_books'
-    ],
-    ROLE_ADMIN=>[
-        'view_books',
-        'edit_books',
-        'add_admin',
-        'add_book'
-    ]
-    ];
-
-
 
 $login = $_POST['login'];
 
@@ -31,14 +15,23 @@ $password = $_POST['password'];
     $users = json_decode(file_get_contents($url));
 
     foreach($users as $single){
-        if($user == $single->id && $password==$single->password){
+        if($user == $single->id && password_verify($password, '$2y$10$oImNb.WVyNdwcrebgESNdedgDzaaIu\/xIgfSql96SSzWTZn4wWeUW')){
             session_start();
             $_SESSION['userid']= $single->id;
             $_SESSION['password']= $single->password;
             if(isset($_SESSION['userid'])){
-                header(
-                    'Location:http://localhost/php_projects/Library_Management_System/home/home.php'
-                );
+                $role = $single->role;
+
+                if($role=='student'){
+                    header(
+                        'Location:http://localhost/php_projects/Library_Management_System/home/home.php'
+                    );
+                }else if($role=='admin'){
+                    header(
+                        'Location:http://localhost/php_projects/Library_Management_System/admin/admin.php'
+                    );
+                }
+               
             }
             break;
         }else{
@@ -48,6 +41,8 @@ $password = $_POST['password'];
         }
     }
 }
+
+
 
 
 ?>

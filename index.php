@@ -15,7 +15,6 @@
     <br> <br><br>
     <div class="box1">
         <h1 style="text-align: center; font-size: 25px;">User Login Form</h1><br>
-        <br><br>
         <div class="login">
           <form action="./signin.php" method="post">
             <input type="text" name="userid" placeholder="Userid" required=""> <br><br>
@@ -26,7 +25,7 @@
       <p style="color: white; padding-left: 15px;">
         <br><br>
         <a style="color:white;" href="">Forgot password?</a> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-        New to this website?<a style="color: white;" href="registration.html">Sign Up</a>
+        New to this website?<a style="color: white;" href="registration.php">Sign Up</a>
       </p>
     </div>
   </div>
