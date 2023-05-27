@@ -41,7 +41,12 @@
         
         public function readBooks(){
             $querry='
-            select books_url.id,book_name,author,year_published,description,img_url, url, dCount from books join images on images.book_id=books.id join books_url on books_url.book_id=books.id left join downloads on downloads.book_id=books.id
+            SELECT books_url.id, book_name, author, year_published, description, img_url, url, COUNT(downloads.book_id) AS dCount
+            FROM books
+            JOIN images ON images.book_id = books.id
+            JOIN books_url ON books_url.book_id = books.id
+            LEFT JOIN downloads ON downloads.book_id = books.id
+            GROUP BY books_url.id, book_name, author, year_published, description, img_url, url;
             ';
             // $querry =
             //         '
@@ -186,6 +191,8 @@
             return false;
         }
 
+
+
         public function updateUser(){
             $querry='
                 UPDATE users
@@ -234,6 +241,22 @@
             }
             return false;
         }
+        public function updateDownload(){
+            $querry='
+                INSERT INTO downloads(book_id,dCount) values(:book_id,:dCount)
+            ';
 
+            $stmt=$this->db->prepare($querry);
+
+            $stmt->bindParam(':book_id',$this->book_id);
+            $stmt->bindParam(':dCount',$this->download_count);
+
+            if($stmt->execute()){
+                return true;
+            }
+            return false;
+        }
     }
+
+   
 ?>
