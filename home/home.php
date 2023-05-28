@@ -34,10 +34,10 @@ if(!isset($_SESSION['userid'])){
             </li>
             <div class="nav-elements">
                 <ul>
-                    <li><p class="user-profile">KM</p></li>
                     <li><a class="home" href="">Home</a></li>
                     <li><a class="featured" href="">Featured</a></li>
                     <li><a href="./../signout.php">Log out</a></li>
+                    <li><p class="user-profile"><?php echo $_SESSION['user']?></p></li>
                     <li><form class="show" id="form"action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
                         <input type="search" name="search" id="search" placeholder="Search">
                         <button type="submit"  name="search_button">S</button>
@@ -82,7 +82,8 @@ if(!isset($_SESSION['userid'])){
                         <?php if(preg_match($pattern,$data->book_name)||preg_match($pattern,$data->author)||preg_match($pattern,$data->year_published)):?>
                             <a class="book-links" href="<?php echo 'book.php?id='.$data->id ?>">
                                 <div class="book-card">
-                                    <img src="./images/b19.jpg" alt="Picture">
+                                    
+                                    <img src="" alt="Picture">
                                     <p class="book-name"><?php echo $data->book_name ?></p>
                                     <p class="author"><?php echo $data->author ?></p>
                                     <div class="elements">
@@ -102,7 +103,22 @@ if(!isset($_SESSION['userid'])){
             <?php foreach ($book_page as $user):?>
                     <a class="book-links" href="<?php echo 'book.php?id='.$user->id ?>">
                         <div class="book-card">
-                            <img src="./images/b19.jpg" alt="Picture">
+                            <?php
+                                $url = "";
+                                if($user->img_url==""){
+                                    $url = './images/b19.jpg';
+                                }elseif(is_null($user->img_url)){
+                                    $url = './images/b19.jpg';
+                                }
+                                else{
+                                    
+                                    $url = '../admin/'.$user->img_url;
+                                    if(!getimagesize($url)){
+                                        $url = './images/b19.jpg';
+                                    }
+                                }
+                            ?>
+                            <img id="image" src="<?php echo $url?>" alt="Picture">
                             <p class="book-name"><?php echo $user->book_name ?></p>
                             <p class="author"><?php echo $user->author ?></p>
                             <div class="elements">
@@ -147,7 +163,15 @@ if(!isset($_SESSION['userid'])){
             <p>Copyright &copy; <span class="year">2023</span></p>
         </div>
     </footer>
+    <script>
+        const image = document.getElementById('image');
+        console.lgo(image.innerHTML);
+        image.onerror = function() {
 
+            // Error occurred while loading/displaying the image
+            image.src = './images/b19.jpg';
+        };
+    </script>
     <script src="./js/app.js"></script>
 </body>
 </html>

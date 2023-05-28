@@ -4,8 +4,16 @@
 
 // ini_set('display_errors', 1);
 // error_reporting(E_ALL);
+session_start();
+
 
 createUser(generatedUserId());
+
+if(isset($_SESSION['userId'])){
+    header(
+        'Location:http://localhost/php_projects/Library_Management_System/home/home.php'
+    );
+}
 
 
 function generatedUserId(){
@@ -18,6 +26,7 @@ function generatedUserId(){
         if($id==$user->id){
             generatedUserId();
         }else{
+            $_SESSION['userId']= $id;
             return $id;
         }
     }
@@ -69,8 +78,6 @@ function createUser($id){
         // Close curl
         curl_close($ch);
 
-
-        echo 'Your username is '. $id;
 
         }catch(PDOException $e){
             echo $e->getMessage();

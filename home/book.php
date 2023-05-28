@@ -44,6 +44,7 @@
                     $download = $user->url;
                     $year = substr($user->year_published, 0,4);
                     $img_url = $user->img_url;
+                    $url = $user->url;
                 }
             }         
             ?>
@@ -64,7 +65,7 @@
                         <div class="elements">
                             <p class="downloads"><?php echo $year ?></p>
                             <form class="download-form" action="" method="post">
-                                <a class="download" href="./download.php?bookId=<?php echo $bookId ?>">download</a>
+                                <a class="download" href="./download.php?bookId=<?php echo $bookId ?>&filepath=../admin/<?php echo $url?>"download>download</a>
                             </form>
                         </div>
                     </div>

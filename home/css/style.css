@@ -150,9 +150,13 @@ img{
 }
 .book-card img{
     border-radius: 8px 8px 0 0;
+    object-fit: cover;
+    object-position: center;
+    height: 200px;
 }
 .book-card{
     width: 300px;
+    height: 300px;
     background-color: #ffefd5;
     border-radius: 8px;
     box-shadow: 0 2px 5px #6e6e6e;
@@ -262,7 +266,7 @@ footer{
 } */
 
 .user-profile{
-    visibility: hidden;
+    visibility: visible;
 }
 form .download{
     border: none;

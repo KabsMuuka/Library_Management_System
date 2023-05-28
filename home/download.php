@@ -3,12 +3,28 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 if(isset($_GET['bookId'])){
     $id= $_GET['bookId'];
+
+    $filePath = $_GET['filepath'];
+
+    if($filePath == "" && is_null($filePath) && empty($filePath)){
+       return;
+    }
+    else{
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename="'.basename($filePath).'"');
+        header('Content-Length: ' . filesize($filePath));
+    }
+
+
+
     generatedDownload($id);
 
+    
 
-    header(
-        'Location:http://localhost/php_projects/Library_Management_System/home/book.php?id='.$id
-    );
+
+    // header(
+    //     'Location:http://localhost/php_projects/Library_Management_System/home/book.php?id='.$id
+    // );
 }else{
     return;
 }
