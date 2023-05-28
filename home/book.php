@@ -63,13 +63,13 @@
                         </div>
                         <div class="elements">
                             <p class="downloads"><?php echo $year ?></p>
-                            <p class="book_id" style="visibility:hidden;"><?php echo $bookId?></p>
-                            <a class="download" href="">download</a>
+                            <form class="download-form" action="" method="post">
+                                <a class="download" href="./download.php?bookId=<?php echo $bookId ?>">download</a>
+                            </form>
                         </div>
                     </div>
                 </div>
         </div>
-
         <div class="classs">
 
         </div>

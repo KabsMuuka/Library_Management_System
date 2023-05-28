@@ -243,12 +243,13 @@
         }
         public function createDownload(){
             $querry='
-                INSERT INTO downloads(book_id,dCount) values(:book_id,1)
+                INSERT INTO downloads(book_id,dCount) values(:book_id,:dCount)
             ';
 
             $stmt=$this->db->prepare($querry);
 
             $stmt->bindParam(':book_id',$this->book_id);
+            $stmt->bindParam(':dCount',$this->download_count);
 
             if($stmt->execute()){
                 return true;

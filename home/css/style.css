@@ -83,6 +83,9 @@ input[type="search"]:focus {
     padding-left: 3px;
     height: 25px;
 }
+.download-form button{
+    border: none;
+}
 form{
     display: flex;
     justify-content: center;
@@ -261,13 +264,15 @@ footer{
 .user-profile{
     visibility: hidden;
 }
-.download{
+form .download{
     border: none;
     outline: none;
     background-color: #ffefd5;
     cursor: pointer;
 }
-
+.download-form{
+    border: none;
+}
 @media screen and (max-width:600px){
     body{
         height: 100vh;

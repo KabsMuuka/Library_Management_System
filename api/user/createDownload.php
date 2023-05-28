@@ -18,11 +18,12 @@
     $data=json_decode(file_get_contents('php://input'));
 
     $user->book_id=$data->book_id;
+    $user->download_count=$data->dCount;
 
 
     if($user->createDownload()){
         echo json_encode(
-            array('Message'=>'User created successfully!')
+            array('Message'=>'Downloaded!')
         );
     }else{
         echo json_encode(
