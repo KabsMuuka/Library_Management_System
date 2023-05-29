@@ -343,7 +343,7 @@ form .download{
     #form{
         position: absolute;
         left: -350px;
-        bottom: 205px;
+        bottom: 160px;
     }
 
     .book-card{
@@ -364,6 +364,18 @@ form .download{
         background-color: #ffefd5;
         box-shadow: 0 2px 10px #6e6e6e;
         margin-bottom: 20px;
+    }
+
+    .menus{
+        visibility: hidden;
+        right: 30px;
+    }
+
+    .menus ul li{
+        text-align: right;
+    }
+    .showAll{
+        visibility: visible;
     }
 
 }

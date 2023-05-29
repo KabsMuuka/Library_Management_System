@@ -44,7 +44,7 @@ if(!isset($_SESSION['userid'])){
             </li>
             <div class="nav-elements">
                 <ul>
-                    <li><a class="home" href="">Home</a></li>
+                    <li><a class="home" href="#">Home</a></li>
                     <li><a class="featured" href="">Featured</a></li>
                     <li><a href="" class="user-profile1"><?php echo  strtoupper(substr($firstname,0,1)).strtoupper(substr($lastname,0,1))?></a></li>
                     <li><form class="show" id="form"action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">

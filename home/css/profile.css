@@ -35,3 +35,8 @@ body{
 .profile a:hover{
     border-radius: 5px;
 }
+@media screen and (max-width:600px) {
+    .profile p{
+        font-size: 10px;
+    } 
+}
