@@ -19,3 +19,11 @@ const year = document.querySelector('.year');
 
 let thisYear = new Date();
 year.innerHTML =thisYear.getFullYear();
+
+const menus = document.querySelector('.menus');
+const profile = document.querySelector('.user-profile1');
+
+profile.addEventListener('click',()=>{
+    menus.classList.toggle('hidden');
+})
+

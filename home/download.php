@@ -10,6 +10,7 @@ if(isset($_GET['bookId'])){
        return;
     }
     else{
+        header('Content-Type: application/pdf');
         header('Content-Type: application/octet-stream');
         header('Content-Disposition: attachment; filename="'.basename($filePath).'"');
         header('Content-Length: ' . filesize($filePath));
@@ -20,8 +21,6 @@ if(isset($_GET['bookId'])){
     generatedDownload($id);
 
     
-
-
     // header(
     //     'Location:http://localhost/php_projects/Library_Management_System/home/book.php?id='.$id
     // );

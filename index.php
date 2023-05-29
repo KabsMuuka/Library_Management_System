@@ -18,7 +18,11 @@
         <div class="login">
           <form action="./signin.php" method="post">
             <input type="text" name="userid" placeholder="Userid" required=""> <br><br>
-            <input type="password" name="password" placeholder="Password" required=""> <br><br>
+            <input id="password" type="password" name="password" placeholder="Password" required=""> <br><br>
+            <div class="show-pass">
+              <input type="checkbox" name="check" id="check">
+              <label for="check">Show password</label><br>
+            </div>
             <button name="login">Login</button>
           </form>
         </div>
@@ -30,5 +34,7 @@
     </div>
   </div>
 </section>
+
+<script src="./index.js"></script>
 </body>
 </html>

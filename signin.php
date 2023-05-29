@@ -20,8 +20,16 @@ $password = $_POST['password'];
             session_start();
             $_SESSION['userid']= $single->id;
             $_SESSION['password']= $single->password;
+
             if(isset($_SESSION['userid'])){
                 $role = $single->role;
+                $firstname = $single->first_name;
+                $lastname = $single -> last_name;
+
+                $_SESSION['firstname']= 'Robert';
+                $_SESSION['lastname']=$lastname;
+                $_SESSION['role']=$role;
+
 
                 if($role=='student'){
                     header(

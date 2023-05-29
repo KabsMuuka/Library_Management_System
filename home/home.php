@@ -5,6 +5,16 @@ if(!isset($_SESSION['userid'])){
     header(
         'Location:http://localhost/php_projects/Library_Management_System/index.php'
     );
+}else{
+    $url = "https://schoollibray.000webhostapp.com/api/user/read.php";
+    $users = json_decode(file_get_contents($url));
+
+    foreach($users as $user){
+        if($_SESSION['userid']==$user->id){
+            $firstname = $user->first_name;
+            $lastname = $user->last_name;
+        }
+    }
 }
 ?>
 
@@ -36,13 +46,18 @@ if(!isset($_SESSION['userid'])){
                 <ul>
                     <li><a class="home" href="">Home</a></li>
                     <li><a class="featured" href="">Featured</a></li>
-                    <li><a href="./../signout.php">Log out</a></li>
-                    <li><p class="user-profile"><?php echo $_SESSION['user']?></p></li>
+                    <li><a href="" class="user-profile1"><?php echo  strtoupper(substr($firstname,0,1)).strtoupper(substr($lastname,0,1))?></a></li>
                     <li><form class="show" id="form"action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
                         <input type="search" name="search" id="search" placeholder="Search">
                         <button type="submit"  name="search_button">S</button>
                         </form>
                     </li>
+                </ul>
+            </div>
+            <div class="menus hidden">
+                <ul>
+                    <li><a href="./profile.php">Profile</a></li>
+                    <li><a href="./../signout.php">Log out</a></li>
                 </ul>
             </div>
         </div>
