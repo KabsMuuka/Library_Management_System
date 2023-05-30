@@ -9,16 +9,16 @@
 
   
 </head>
-<body>
+<body class="log_img">
 <section>
-  <div class="log_img">
+  <div>
     <br> <br><br>
     <div class="box1">
         <h1 style="text-align: center; font-size: 25px;">User Login Form</h1><br>
         <div class="login">
           <form action="./signin.php" method="post">
-            <input type="text" name="userid" placeholder="Userid" required=""> <br><br>
-            <input id="password" type="password" name="password" placeholder="Password" required=""> <br><br>
+            <input class="userId" type="text" name="userid" placeholder="Userid" required=""> <br><br>
+            <input class="pwd" id="password" type="password" name="password" placeholder="Password" required=""> <br><br>
             <div class="show-pass">
               <input type="checkbox" name="check" id="check">
               <label for="check">Show password</label><br>

@@ -31,7 +31,6 @@
             <?php
 
             $bookId = $_GET['id'];
-
             $url='https://schoollibray.000webhostapp.com/api/user/readBooks.php';                       
             $json = json_decode(file_get_contents($url));
             $user_data = $json;
@@ -79,7 +78,8 @@
                             <p class="downloads"><?php echo $year ?></p>
                             
                             <form class="download-form" action="" method="post">
-                                <a class="download" href="./download.php?bookId=<?php echo $bookId ?>&filepath=../admin/<?php echo $url?>"download>download</a>
+                                <a class="download" href="./download.php?bookId=<?php echo $bookId ?>&filepath=../admin/<?php echo $download?>"download>download</a>
+
                             </form>
                         </div>
                     </div>

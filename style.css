@@ -169,9 +169,8 @@ section .sec_img
 
 .log_img
 {
-	height: 650px;
 	margin-top: 0px;
-	background-image: url("https://images.unsplash.com/photo-1419640303358-44f0d27f48e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=785&q=80");
+	background-image: url("https://img.freepik.com/free-photo/stack-books-with-word-front_1340-27740.jpg?w=740&t=st=1685480991~exp=1685481591~hmac=cc03866e390f2471549711e732ac292d9012d0de325254e9e6d93673efb381c3");
 	background-size: cover;
 	background-repeat: none;
 }
@@ -246,4 +245,10 @@ input
 	margin: 0;
 	height: 15px;
 	width: 15px;
+}
+.userId{
+	font-size: large;
+}
+.pwd{
+	font-size: large;
 }

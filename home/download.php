@@ -6,12 +6,11 @@ if(isset($_GET['bookId'])){
 
     $filePath = $_GET['filepath'];
 
-    if($filePath == "" && is_null($filePath) && empty($filePath)){
+    if($filePath == "" || is_null($filePath) || empty($filePath)){
        return;
     }
     else{
         header('Content-Type: application/pdf');
-        header('Content-Type: application/octet-stream');
         header('Content-Disposition: attachment; filename="'.basename($filePath).'"');
         header('Content-Length: ' . filesize($filePath));
     }
