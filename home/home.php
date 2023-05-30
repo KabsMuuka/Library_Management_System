@@ -80,8 +80,6 @@ if(!isset($_SESSION['userid'])){
                 $json = json_decode(file_get_contents($url));
                 $user_data = $json;
 
-                
-
                 $books_per_page = 8;
                 $total_books = count($user_data);
                 $total_pages = ceil($total_books/$books_per_page);

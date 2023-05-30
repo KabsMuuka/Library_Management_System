@@ -6,11 +6,10 @@ const profile = document.querySelector('.user-profile1');
 const user = document.querySelector('.user-profile');
 const nav = document.querySelector('.nav-elements');
 
-console.log(menu);
-console.log(menuBar.innerHTML);
-menu.addEventListener('click',()=>{
 
+menu.addEventListener('click',(e)=>{
 
+    e.preventDefault();
 
     menus.classList.toggle('showAll');
     if(menuBar.innerHTML=='close'){
@@ -27,7 +26,8 @@ year.innerHTML =thisYear.getFullYear();
 
 
 
-profile.addEventListener('click',()=>{
+profile.addEventListener('click',(e)=>{
+    e.preventDefault();
     menus.classList.toggle('hidden');
 })
 

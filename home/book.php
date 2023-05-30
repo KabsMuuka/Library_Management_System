@@ -45,8 +45,19 @@
                     $year = substr($user->year_published, 0,4);
                     $img_url = $user->img_url;
                     
-                    $url = $user->url;
-                    
+           
+                    $url = "";
+                    if($user->img_url==""){
+                        $url = './images/b19.jpg';
+                    }else if(is_null($user->img_url)){
+                            $url = './images/b19.jpg';
+                    }
+                    else{            
+                        $url = '../admin/'.$user->img_url;
+                        if(!getimagesize($url)){
+                            $url = './images/b19.jpg';
+                        }
+                    }
                 }
             }         
             ?>
@@ -57,7 +68,7 @@
 
         <div class="all-books">
                 <div class="single-book-card">
-                    <img src="./images/b19.jpg" alt="">
+                    <img src="<?php echo $url?>" alt="">
                     <div class="dits">
                         <p class="book-name"><?php echo $book_name?></p>
                         <p class="author"><?php echo $author?></p>

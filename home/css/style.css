@@ -71,7 +71,10 @@ button[type="submit"]:focus,
 input[type="search"]:focus {
   outline: none;
 }
-
+#form input{
+    background-color: transparent;
+    border: none;
+}
 .nav-elements input{
     background-color: #f1f1f1;
     outline: none;
@@ -211,9 +214,12 @@ img{
 }
 .single-book-card img{
     width: 300px;
+    height: 100%;
+    object-fit: cover;
 }
 .single-book-card{
     width: 800px;
+    height: 200px;
     display: flex;
     gap: 20px;
     background-color: #ffefd5;
@@ -342,8 +348,20 @@ form .download{
     }
     #form{
         position: absolute;
-        left: -350px;
+        left: -250px;
         bottom: 160px;
+        width: 200px;
+    }
+    #form input{
+        width: 200px;
+        background-color: transparent;
+        border: none;
+    }
+    #form button{
+        position: absolute;
+        left: -50px;
+        bottom: 160px;
+        
     }
 
     .book-card{

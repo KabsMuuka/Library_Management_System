@@ -26,7 +26,7 @@ function generatedUserId(){
         if($id==$user->id){
             generatedUserId();
         }else{
-            $_SESSION['userId']= $id;
+            $_SESSION['userid']= $id;
             return $id;
         }
     }
