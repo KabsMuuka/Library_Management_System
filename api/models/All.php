@@ -1,5 +1,7 @@
 <?php
 
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
     class All{
         public $student_id;
         public $first_name;
@@ -29,7 +31,7 @@
                 password,
                 first_name,
                 last_name,
-                role,
+                role
                 FROM users
             ';
             $stmt = $this->db->prepare($querry);
@@ -228,14 +230,17 @@
         }
 
         public function deleteBook(){
-            $querry='
-                DELETE FROM books
-                    WHERE id=:id
-            ';
+            $query = '
+            DELETE FROM downloads WHERE book_id = :id;
+            DELETE FROM images WHERE book_id = :id;
+            DELETE FROM books_url WHERE book_id = :id;
+            DELETE FROM books WHERE id = :id;
+                ';
 
-            $stmt=$this->db->prepare($querry);
-            $stmt->bindParam('id',$this->book_id);
 
+            $stmt=$this->db->prepare($query);
+            $stmt->bindParam(':id',$this->book_id);
+ 
             if($stmt->execute()){
                 return true;
             }

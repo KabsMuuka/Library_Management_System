@@ -46,9 +46,9 @@ if(!(isset($_SESSION['userid']))){
                     <input class="year" name="year_published"  type="date" required>
                     <textarea class="description" name="description"  placeholder="Description" required></textarea>
                     <label for="image-file" required>Cover Image</label>
-                    <input type="file"  name="image-file" id="file" required>
+                    <input type="file"  name="image-file" id="image-file" required>
                     <label for="book-file">Book</label>
-                    <input type="file"  name="book-file" id="file" required>
+                    <input type="file"  name="book-file" id="book-file" required>
                     <button class="add"type="submit" name="add">Add</button>
                 </form>
             </div>
@@ -73,23 +73,27 @@ if(!(isset($_SESSION['userid']))){
                            
                             <tbody>
                                         <?php 
-                                            $url='http://localhost/Library_Management_System/api/user/readBooks.php';
+                                            $url='https://schoollibray.000webhostapp.com/api/user/readBooks.php';
                                             
                                             $json = json_decode(file_get_contents($url));
-                                            $user_data = $json->data;
+                                            $user_data = $json;
+                                            $count = 1;
+                                            
                                         foreach ($user_data as $user): ?>
                                             <tr class="tbody">
-                                                <td class="bk_data"><?php echo $user->id?></td>
+                                                <td class="bk_data"><?php echo $count?></td>
                                                 <td><?php echo $user->book_name?></td>
                                                 <td><?php echo $user->author?></td>
                                                 <td><?php echo $user->year_published?></td>
                                                 <td><?php echo $user->dCount?></td>
                                                 <td><?php echo $user->description?></td>
-                                                <td><button class="edit">Edit</button></td>
-                                                <td><button class="delete">Delete</button></td>
+                                                <td><a class="edit">Edit<p class="book_id" style="visibility: hidden;"><?php echo $user->id ?></p></a></td>
+                                                <td><a href="./delete.php?id=<?php echo $user->id?>" class="delete">Delete</a></td>
                                             </tr>
+                                            
+                                            <?php $count++ ?>
                                         <?php endforeach; ?>
-                                   
+                                       
                             </tbody>
                             
                         </table>                        

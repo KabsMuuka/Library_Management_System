@@ -26,7 +26,7 @@ $password = $_POST['password'];
                 $firstname = $single->first_name;
                 $lastname = $single -> last_name;
 
-                $_SESSION['firstname']= 'Robert';
+                $_SESSION['firstname']= $firstname;
                 $_SESSION['lastname']=$lastname;
                 $_SESSION['role']=$role;
 

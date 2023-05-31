@@ -35,7 +35,7 @@ if(!isset($_SESSION['userid'])){
     <header>
         <div class="nav">
             <div class="logo">
-                <a href="#"><p>G<span>7</span></p></a>
+                <a href="./home.php"><p>G<span>7</span></p></a>
             </div>
             <li class="menu">
                 <a class="menu-icon" href="">
@@ -44,7 +44,7 @@ if(!isset($_SESSION['userid'])){
             </li>
             <div class="nav-elements">
                 <ul>
-                    <li><a class="home" href="#">Home</a></li>
+                    <li><a class="home" href="./home.php">Home</a></li>
                     <li><a class="featured" href="">Featured</a></li>
                     <li><a href="" class="user-profile1"><?php echo  strtoupper(substr($firstname,0,1)).strtoupper(substr($lastname,0,1))?></a></li>
                     <li><form class="show" id="form"action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
@@ -86,7 +86,7 @@ if(!isset($_SESSION['userid'])){
                 $current_page = isset($_GET['page'])?$_GET['page']:1;
 
                 $start_index = ($current_page-1)* $books_per_page;
-                $end_index = $start_index + $books_per_page -1;
+                $end_index = $start_index + $books_per_page;
 
                 $book_page = array_slice($user_data, $start_index, $end_index);?>
                 <?php if(isset($_POST['search_button'])):?>
@@ -95,8 +95,21 @@ if(!isset($_SESSION['userid'])){
                         <?php if(preg_match($pattern,$data->book_name)||preg_match($pattern,$data->author)||preg_match($pattern,$data->year_published)):?>
                             <a class="book-links" href="<?php echo 'book.php?id='.$data->id ?>">
                                 <div class="book-card">
-                                    
-                                    <img src="" alt="Picture">
+                                <?php
+                                $url = "";
+                                if($data->img_url==""){
+                                    $url = './images/b19.jpg';
+                                }elseif(is_null($user->img_url)){
+                                    $url = './images/b19.jpg';
+                                }
+                                else{
+                                    $url = '../admin/'.$data->img_url;
+                                    if(!getimagesize($url)){
+                                        $url = './images/b19.jpg';
+                                    }
+                                }
+                            ?>
+                                    <img src="<?php echo $url ?>" alt="Picture">
                                     <p class="book-name"><?php echo $data->book_name ?></p>
                                     <p class="author"><?php echo $data->author ?></p>
                                     <div class="elements">
@@ -113,6 +126,7 @@ if(!isset($_SESSION['userid'])){
                     <?php endforeach ?>    
                 <?php endif ?>
             <?php if(!(isset($_POST['search_button']))): ?>
+            
             <?php foreach ($book_page as $user):?>
                     <a class="book-links" href="<?php echo 'book.php?id='.$user->id ?>">
                         <div class="book-card">
@@ -124,7 +138,6 @@ if(!isset($_SESSION['userid'])){
                                     $url = './images/b19.jpg';
                                 }
                                 else{
-                                    
                                     $url = '../admin/'.$user->img_url;
                                     if(!getimagesize($url)){
                                         $url = './images/b19.jpg';

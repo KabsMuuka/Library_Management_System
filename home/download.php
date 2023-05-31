@@ -1,20 +1,38 @@
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-if(isset($_GET['bookId'])){
-    $id= $_GET['bookId'];
+if(isset($_GET['bookid'])){
+    $id= $_GET['bookid'];
 
     $filePath = $_GET['filepath'];
 
-    if($filePath == "" || is_null($filePath) || empty($filePath)){
-       return;
-    }
-    else{
-        header('Content-Type: application/pdf');
-        header('Content-Disposition: attachment; filename="'.basename($filePath).'"');
-        header('Content-Length: ' . filesize($filePath));
-    }
 
+
+
+    if (file_exists($filePath)) {
+        // Set the appropriate headers for file download
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename="' . basename($fileName) . '"');
+        header('Content-Length: ' . filesize($filePath));
+        header('Cache-Control: no-cache, must-revalidate');
+        header('Pragma: no-cache');
+        header('Expires: 0');
+    
+        readfile($filePath);
+        exit;
+    } else {
+        // File not found, handle the error as desired
+        echo 'File not found';
+        exit;
+    }
+    
+    
+    
+    
+    
+    
+    
 
 
     generatedDownload($id);
@@ -23,9 +41,9 @@ if(isset($_GET['bookId'])){
     // header(
     //     'Location:http://localhost/php_projects/Library_Management_System/home/book.php?id='.$id
     // );
-}else{
-    return;
-}
+    }else{
+        return;
+    }
 
 
 function generatedDownload($book_id){

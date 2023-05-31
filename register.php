@@ -9,11 +9,11 @@ session_start();
 
 createUser(generatedUserId());
 
-if(isset($_SESSION['userId'])){
-    header(
-        'Location:http://localhost/php_projects/Library_Management_System/home/home.php'
-    );
-}
+// if(isset($_SESSION['userId'])){
+//     header(
+//         'Location:http://localhost/php_projects/Library_Management_System/home/home.php'
+//     );
+// }
 
 
 function generatedUserId(){
@@ -26,7 +26,6 @@ function generatedUserId(){
         if($id==$user->id){
             generatedUserId();
         }else{
-            $_SESSION['userid']= $id;
             return $id;
         }
     }
@@ -74,10 +73,26 @@ function createUser($id){
         // Execute curl and get response
         $response = curl_exec($ch);
 
-        
+        $status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+        // if($status_code==200){
+        //     $url = "https://schoollibray.000webhostapp.com/api/user/read.php";
+        //     $users = json_decode(file_get_contents($url));
+
+        //     foreach($users as $user){
+        //         if($user->id==$id){
+        //             if(checkUser($id,$password,$user->password)){
+        //                 header(
+        //                     'Location:http://localhost/php_projects/Library_Management_System/home/home.php'
+        //                 );
+        //             };
+        //         }
+        //     }
+        // }
         // Close curl
         curl_close($ch);
 
+        
 
         }catch(PDOException $e){
             echo $e->getMessage();
@@ -87,5 +102,13 @@ function createUser($id){
 function hashedPass($password){
     $pass = password_hash($password,PASSWORD_BCRYPT);
     return $pass;
+}
+
+function checkUser($id, $pass, $user_pass){
+    if(password_verify($user_pass, $pass)){
+        $_SESSION['userid']= $id;
+        return true;
+    }
+    return false;
 }
 ?>
