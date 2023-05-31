@@ -12,7 +12,7 @@
     <header>
         <div class="nav">
             <div class="logo">
-                <a href="#"><p>G<span>7</span></p></a>
+                <a href="./home.php"><p>G<span>7</span></p></a>
             </div>
             <div class="nav-elements">
                 <ul>
@@ -78,8 +78,7 @@
                             <p class="downloads"><?php echo $year ?></p>
                             
                             <form class="download-form" action="" method="post">
-                                <a class="download" href="./download.php?bookId=<?php echo $bookId ?>&filepath=../admin/<?php echo $download?>"download>download</a>
-
+                                <a class="download" href="./download.php?bookId=<?php echo $bookId ?>&file=<?php echo basename($download) ?>">download</a>
                             </form>
                         </div>
                     </div>
