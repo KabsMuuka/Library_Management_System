@@ -45,6 +45,7 @@ if(!isset($_SESSION['userid'])){
             <div class="nav-elements">
                 <ul>
                     <li><a class="home" href="./home.php">Home</a></li>
+                     <li><a class="home" href="/admin//admin.php">Admin</a></li>
                     <li><a class="featured" href="">Featured</a></li>
                     <li><a href="" class="user-profile1"><?php echo  strtoupper(substr($firstname,0,1)).strtoupper(substr($lastname,0,1))?></a></li>
                     <li><form class="show" id="form"action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
@@ -76,6 +77,7 @@ if(!isset($_SESSION['userid'])){
                 
                 // ini_set('display_errors', 1);
                 // error_reporting(E_ALL);
+
                 $url='https://schoollibray.000webhostapp.com/api/user/readBooks.php';                       
                 $json = json_decode(file_get_contents($url));
                 $user_data = $json;

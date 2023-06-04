@@ -87,7 +87,6 @@ if(!(isset($_SESSION['userid']))){
                                                 <td><?php echo $user->year_published?></td>
                                                 <td><?php echo $user->dCount?></td>
                                                 <td><?php echo $user->description?></td>
-                                                <td><a class="edit">Edit<p class="book_id" style="visibility: hidden;"><?php echo $user->id ?></p></a></td>
                                                 <td><a href="./delete.php?id=<?php echo $user->id?>" class="delete">Delete</a></td>
                                             </tr>
                                             
